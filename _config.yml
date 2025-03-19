@@ -54,6 +54,7 @@ exclude:
   - package-lock.json
   - package.json
   - postcss.config.js
+  - README.md
 
 # Exclude from processing.
 # The following items will not be processed, by default.
