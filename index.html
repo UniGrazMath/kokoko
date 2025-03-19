@@ -45,15 +45,15 @@ layout: home
 {% endif %}
 {% for session in meeting.sessions %}
 {% assign session_talks = talks | where_exp:"talk","talk.session == session.name" | sort: "time"  %}
-<div class="mb-4">
+<div class="pb-4">
     <h5 class="font-serif font-medium text-xl mb-2">
         {{ session.name }}
         <span class="ml-2 opacity-70 text-sm">{{session.room}}</span>
     </h5>
-    <dl class="border-l-5 border-primary-800 grid grid-cols-[auto_1fr] gap-4">
+    <dl class="border-l-5 border-primary-800 grid grid-cols-[auto_1fr] gap-4 mb--2">
         {% for talk in session_talks %}
-        <dt class="text-white text-center self-start bg-primary-800 px-2 pb-1 pt-[5px] rounded-r-xl font-sans text-sm font-bold">{{ talk.time }}</dt>
-        <dd class="py-1" x-data="{ abstract_expanded: false }">
+        <dt class="text-white text-center self-start bg-primary-800 px-2 pb-1 pt-[5px] rounded-r-xl font-sans font-bold text-sm">{{ talk.time }}</dt>
+        <dd class="pt-1 -mb-2 pb-2" x-data="{ abstract_expanded: false }">
             {% if talk.presenter %}
             <div class="mb-1">
                 <span class="">{{ talk.presenter }}</span>
