@@ -17,8 +17,8 @@ layout: home
 <h3 class="mb-2 font-sans font-bold text-xl inline-flex flex-wrap">
     <span class="text-4xl mr-2">{{year}}</span>
     {% if meeting.hide_date != true %}
-    <span class="px-2 py-1 text-sm border-1 border-primary-800 bg-primary-800 text-white rounded-xl self-end">{{ meeting.date | date: "%B, %e" }}</span>
-    <span class="ml-2 self-end">
+    <span class="px-2 py-1 text-sm border-1 border-primary-800 bg-primary-800 text-white rounded-xl self-end mr-2">{{ meeting.date | date: "%B, %e" }}</span>
+    <span class="self-end">
     {{ meeting.location }}
     </span>
     {% endif %}
