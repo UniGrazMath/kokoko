@@ -54,7 +54,7 @@ layout: home
                 <span class="text-xs ml-1">{{ talk.affiliation }}</span>
             </div>
             <em>{{ talk.title }}</em>
-            <button @click="abstract_expanded = ! abstract_expanded" class="ml-3 opacity-70">
+            <button @click="abstract_expanded = ! abstract_expanded" class="ml-3 text-primary-900 font-bold hover:text-primary-800 cursor-pointer">
                 <template x-if="! abstract_expanded"><span>[+]</span></template>
                 <template x-if="abstract_expanded"><span>[-]</span></template>
             </button>
