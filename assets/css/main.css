@@ -1,8 +1,8 @@
 ---
 ---
 
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&family=Roboto&display=swap');
+@import "tailwindcss";
 
 @theme {
     --font-sans: "Roboto", ui-sans-serif, system-ui, sans-serif;
@@ -23,7 +23,7 @@
 }
 
 body {
-    @apply font-serif;
+    @apply font-sans;
 }
 
 main a {
