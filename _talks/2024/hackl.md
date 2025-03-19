@@ -1,8 +1,7 @@
 ---
 presenter: Benjamin Hackl
-time: 15:00
-title: Talk in other year
+affiliation: University of Graz
+time: "14:30"
+title: Ordered trees and $k_t$-Dyck paths
+session: Afternoon Session
 ---
-
-Here is a little abstract including some
-not-so-advanced math: $f(z)$

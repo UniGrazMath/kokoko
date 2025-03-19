@@ -1,7 +1,10 @@
 - date: 2024-02-10
   organizers:
-  - Clemens Heuberger
+  - Sarah Selkirk
   location: University of Klagenfurt
+  sessions:
+  - name: Afternoon Session
+    room: Room I.2.01
 
 - date: 2025-03-17
   organizers:
