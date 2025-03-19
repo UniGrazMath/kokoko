@@ -38,6 +38,11 @@ layout: home
     Organizer(s): {{ meeting.organizers | join:", " }}
 </p>
 {% endif %}
+{% if meeting.photourl %}
+<div class="pb-3">
+    <img src="{{ meeting.photourl | relative_url }}" class="lg:w-[65%] xs:w-[100%] mx-auto">
+</div>
+{% endif %}
 {% for session in meeting.sessions %}
 {% assign session_talks = talks | where_exp:"talk","talk.session == session.name" | sort: "time"  %}
 <div class="mb-4">
