@@ -1,0 +1,22 @@
+- date: 2024-02-10
+  organizers:
+  - Clemens Heuberger
+  location: University of Klagenfurt
+
+- date: 2025-03-17
+  organizers:
+  - Stephan Wagner
+  location: TU Graz
+  sessions:
+  - name: Morning Session
+    room: Steyrergasse 30, Room AE01
+  - name: Afternoon Session
+    room: Steyrergasse 30, Room A111
+  - name: Open Problem Session
+    room: Steyrergasse 30, Room A111
+
+- date: 2026-01-01
+  hide_date: true
+  announcement: |
+    asdf adsfa asdf
+    asdfasdf adsf

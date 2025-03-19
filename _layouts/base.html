@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="{{ site.description }}">
+    <meta name="author" content="{{ site.author }}">
+    <title>{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <script defer src="{{ 'assets/js/alpine-collapse/cdn.min.js' | relative_url }}"></script>
+    <script defer src="{{ 'assets/js/alpine/cdn.min.js' | relative_url }}"></script>
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        svg: {
+          fontCache: 'global'
+        }
+      };
+      </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <header class="bg-white shadow">
+      <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+        <h1 class="text-2xl font-bold font-sans">
+            <a href="/">{{ site.title }}</a>
+        </h1>
+        <nav>
+          <a href="/about" class="text-gray-600 hover:text-gray-900 px-3">About</a>
+        </nav>
+      </div>
+    </header>
+    {{ content }}
+    <footer class="bg-white shadow mt-8">
+      <div class="container mx-auto px-4 py-6 text-center">
+        <p>
+            Made with
+            <span class="text-red-500 inline-block h-4"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="m12 21l-1.45-1.3q-2.525-2.275-4.175-3.925T3.75 12.812T2.388 10.4T2 8.15Q2 5.8 3.575 4.225T7.5 2.65q1.3 0 2.475.55T12 4.75q.85-1 2.025-1.55t2.475-.55q2.35 0 3.925 1.575T22 8.15q0 1.15-.387 2.25t-1.363 2.412t-2.625 2.963T13.45 19.7z"/></svg></span>
+            by <a class="underline hover:text-sky-900" href="https://behackl.dev">behackl</a> <span class="ml-5">&copy; {{ site.time | date: "%Y" }}</span>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+---
+---
+
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&family=Roboto&display=swap');
+
+@theme {
+    --font-sans: "Roboto", ui-sans-serif, system-ui, sans-serif;
+    --font-serif: "Lusitana", ui-serif, serif;
+
+    --color-primary: oklch(69.905% 0.10322 201.58);
+    --color-primary-50: oklch(99.924% 0.00106 197.14);
+    --color-primary-100: oklch(97.421% 0.0117 203.47);
+    --color-primary-200: oklch(92.737% 0.0325 201.37);
+    --color-primary-300: oklch(88.148% 0.05248 200.73);
+    --color-primary-400: oklch(83.683% 0.07106 200.38);
+    --color-primary-500: oklch(79.412% 0.08752 201.11);
+    --color-primary-600: oklch(75.311% 0.10063 200.97);
+    --color-primary-700: oklch(69.905% 0.10322 201.58);
+    --color-primary-800: oklch(57.675% 0.08382 201.4);
+    --color-primary-900: oklch(44.768% 0.06383 202.5);
+    --color-primary-950: oklch(38.099% 0.05271 200.74);
+}
+
+body {
+    @apply font-serif;
+}
+
+main a {
+    @apply text-sky-700 underline hover:text-sky-500;
+}
+
+main p {
+    @apply pb-2;
+}

@@ -1,0 +1,72 @@
+---
+layout: home
+---
+
+<div class="p-10 lg:px-20">
+    <p class="text-xl text-primary-950">
+        The <i>Koralm Kombinatorik Kolloquium (&ldquo;KoKoKo&rdquo;)</i> is an annual workshop
+        on <i>enumerative and analytic combinatorics</i> usually held
+        on either side of the Koralm in Austria.
+    </p>
+</div>
+
+{% for meeting in site.data.meetings reversed %}
+<section class="mb-5">
+{% assign year = meeting.date | date: "%Y" %}
+{% assign talks = site.talks | where_exp:"talk","talk.path contains year"%}
+<h3 class="mb-2 font-sans font-bold text-xl inline-flex">
+    <span class="text-4xl mr-2">{{year}}</span>
+    {% if meeting.hide_date != true %}
+    <span class="px-2 py-1 text-sm border-1 border-primary-800 bg-primary-800 text-white rounded-xl self-end">{{ meeting.date | date: "%B, %e" }}</span>
+    <span class="ml-2 self-end">
+    {{ meeting.location }}
+    </span>
+    {% endif %}
+</h3>
+{% if meeting.announcement %}
+<div class="flex flex-row border-3 my-2 p-4 border-primary rounded-xl bg-primary-100">
+    <div class="my-auto mr-2 text-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="M18 13v-2h4v2zm1.2 7L16 17.6l1.2-1.6l3.2 2.4zm-2-12L16 6.4L19.2 4l1.2 1.6zM5 19v-4H4q-.825 0-1.412-.587T2 13v-2q0-.825.588-1.412T4 9h4l5-3v12l-5-3H7v4zm9-3.65v-6.7q.675.6 1.088 1.463T15.5 12t-.413 1.888T14 15.35"/></svg>
+    </div>
+    <div class="flex-1 my-auto">
+        {{meeting.announcement}}
+    </div>
+</div>
+{% endif %}
+{% if meeting.organizers %}
+<p class="mb-4 text-sm opacity-70">
+    Organizer(s): {{ meeting.organizers | join:", " }}
+</p>
+{% endif %}
+{% for session in meeting.sessions %}
+{% assign session_talks = talks | where_exp:"talk","talk.session == session.name" | sort: "time"  %}
+<div class="mb-4">
+    <h5 class="font-serif font-medium text-xl mb-2">
+        {{ session.name }}
+        <span class="ml-2 opacity-70 text-sm">{{session.room}}</span>
+    </h5>
+    <dl class="border-l-5 border-primary-800 grid grid-cols-[auto_1fr] gap-4">
+        {% for talk in session_talks %}
+        <dt class="text-white text-center self-start bg-primary-800 px-2 py-1 rounded-r-xl">{{ talk.time }}</dt>
+        <dd class="py-1" x-data="{ abstract_expanded: false }">
+            <div class="mb-1">
+                <span class="">{{ talk.presenter }}</span>
+                <span class="text-xs ml-1">{{ talk.affiliation }}</span>
+            </div>
+            <em>{{ talk.title }}</em>
+            <button @click="abstract_expanded = ! abstract_expanded" class="ml-3 opacity-70">
+                <template x-if="! abstract_expanded"><span>[+]</span></template>
+                <template x-if="abstract_expanded"><span>[-]</span></template>
+            </button>
+            <div class="mt-1 text-sm" x-show="abstract_expanded" x-collapse>
+                {{ talk }}
+            </div>
+        </dd>
+        {% endfor %}
+    </dl>
+</div>
+{% endfor %}
+</section>
+{% endfor %}
+
+</div>
