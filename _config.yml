@@ -23,7 +23,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   The Koralm Kombinatorik Kolloquium is an annual workshop
   on enumerative and analytic combinatorics usually held
   on either side of the Koralm in Austria.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/kokoko" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 plugins:
