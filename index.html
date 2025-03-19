@@ -44,7 +44,7 @@ layout: home
 </div>
 {% endif %}
 {% for session in meeting.sessions %}
-{% assign session_talks = talks | where_exp:"talk","talk.session == session.name" | sort: "time"  %}
+{% assign session_talks = talks | where_exp:"talk","talk.session == session.name" | sort: "time" %}
 <div class="pb-4">
     <h5 class="font-serif font-medium text-xl mb-2">
         {{ session.name }}
@@ -73,6 +73,14 @@ layout: home
             {% endif %}
         </dd>
         {% endfor %}
+        {% if session.ended_by %}
+        <dt class="text-white text-center self-start bg-primary-800 px-2 pb-1 pt-[5px] rounded-r-xl font-sans font-bold text-sm">
+            {{ session.ended_at | default:"Break" }}
+        </dt>
+        <dd class="pt-1 -mb-2 pb-2">
+            <em class="font-serif">{{ session.ended_by }}</em>
+        </dd>
+    {% endif %}
     </dl>
 </div>
 {% endfor %}

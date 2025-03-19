@@ -5,6 +5,8 @@
   sessions:
   - name: Afternoon Session
     room: Room I.2.01
+    ended_by: "Open Problem Discussion"
+    ended_at: "16:05"
 
 - date: 2025-03-17
   organizers:
@@ -14,10 +16,16 @@
   sessions:
   - name: Morning Session
     room: Steyrergasse 30, Room AE01
+    ended_by: "Lunch Break"
+    ended_at: "12:00"
   - name: Afternoon Session
     room: Steyrergasse 30, Room A111
+    ended_by: "Coffee Break"
+    ended_at: "15:00"
   - name: Open Problem Session
     room: Steyrergasse 30, Room A111
+    ended_by: "Further Open Problems"
+    ended_at: "16:30"
 
 - date: 2026-01-01
   hide_date: true
