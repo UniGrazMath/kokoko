@@ -6,4 +6,11 @@ title: Sums of cotangents
 session: Open Problem Session
 ---
 
-This is where the abstract goes ... $x^2 + y^2 = z^2$.
+Sums of powers of cotangents of the form
+
+$$ \sum_{k=0}^{n-1} \cot^m \frac{\alpha + k\pi}{n} $$
+
+have been studied in various contexts in the mathematical literature, like number theory
+and topology. We give an explicit elementary evaluation of these sums in terms of certain
+integer valued polynomials with positive coefficients, whose combinatorial interpretation
+remains an open question.
