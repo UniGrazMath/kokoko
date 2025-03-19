@@ -1,3 +1,5 @@
+name: GitHub Pages Deployment
+
 on:
   push:
     branches:
@@ -14,7 +16,7 @@ jobs:
 
     - uses: actions/setup-ruby@v1
       with:
-        ruby-version: '3.3'
+        ruby-version: '3.2.7'
     
     - uses: actions/setup-node@v4
 
