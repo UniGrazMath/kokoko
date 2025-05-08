@@ -4,12 +4,16 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
 
 
 jobs:
 
   build:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
 
     steps:
     - uses: actions/checkout@v4
@@ -23,13 +27,26 @@ jobs:
     - name: "Build site"
       run: npm run generate
     
+    - name: "PR: site preview"
+      if: ${{ github.event_name == 'pull_request' }}
+      uses: afc163/surge-preview@v1
+      with:
+        surge_token: ${{ secrets.SURGE_TOKEN }}
+        build: |
+          echo "not running npm"
+        dist: docs/build/html
+        teardown: 'true'
+
     - name: Upload static files as artifact
+      if: ${{ github.event_name == 'push' }}
       id: deployment
       uses: actions/upload-pages-artifact@v3
       with:
         path: dist/
 
+
   deploy:
+    if: ${{ github.event_name == 'push' }}
     needs: build
     runs-on: ubuntu-latest
     permissions:
