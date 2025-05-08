@@ -13,26 +13,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-
-    - uses: actions/setup-ruby@v1
-      with:
-        ruby-version: '3.2.7'
     
     - uses: actions/setup-node@v4
 
     - name: "Install dependencies"
       run: |
-        bundle install
         npm install
     
     - name: "Build site"
-      run: bundle exec jekyll build
+      run: npm run generate
     
     - name: Upload static files as artifact
       id: deployment
       uses: actions/upload-pages-artifact@v3
       with:
-        path: _site/
+        path: dist/
 
   deploy:
     needs: build
