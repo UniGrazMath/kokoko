@@ -34,7 +34,7 @@ jobs:
         surge_token: ${{ secrets.SURGE_TOKEN }}
         build: |
           echo "not running npm"
-        dist: docs/build/html
+        dist: dist
         teardown: 'true'
 
     - name: Upload static files as artifact
