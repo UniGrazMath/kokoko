@@ -12,7 +12,9 @@ $n = p_1 + p_2 + \cdots + p_k$. We let $p(n)$ denote the number
 of partitions of $n$. For example, $p(4) = 5$ because there are
 five partitions of the integer $n = 4$:
 
-$$ 4,\quad 3 + 1,\quad 2 + 2,\quad 2 + 1 + 1,\quad 1 + 1 + 1 + 1  $$
+$$
+4,\quad 3 + 1,\quad 2 + 2,\quad 2 + 1 + 1,\quad 1 + 1 + 1 + 1
+$$
 
 In 1919, just one year before his death, Ramanujan discovered and proved
 some unexpected, and truly amazing, divisibility properties for the function
