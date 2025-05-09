@@ -17,17 +17,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    
-    - uses: actions/setup-node@v4
 
+    - uses: pnpm/action-setup@v4
+      with:
+        version: 10
+    
     - name: "Install dependencies"
       run: |
-        npm install
+        pnpm install
     
     - name: "Build site"
       env:
         NUXT_APP_BASE_URL: "${ github.event_name == 'push' && '/' || '/kokoko/' }"
-      run: npm run generate
+      run: pnpm generate
     
     - name: "PR: site preview"
       if: ${{ github.event_name == 'pull_request' }}
@@ -36,7 +38,7 @@ jobs:
         surge_token: ${{ secrets.SURGE_TOKEN }}
         build: |
           echo "not running npm"
-        dist: dist
+        dist: .output/public
         teardown: 'true'
 
     - name: Upload static files as artifact
@@ -44,7 +46,7 @@ jobs:
       id: deployment
       uses: actions/upload-pages-artifact@v3
       with:
-        path: dist/
+        path: .output/public
 
 
   deploy:
