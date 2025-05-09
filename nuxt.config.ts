@@ -21,7 +21,6 @@ export default defineNuxtConfig({
   },
   ssr: false,
   app: {
-    baseURL: '/kokoko',
     head: {
       title: 'KoKoKo – Koralm Kombinatorik Kolloquium',
       meta: [
