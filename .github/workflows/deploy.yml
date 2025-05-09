@@ -29,7 +29,9 @@ jobs:
     - name: "Build site"
       env:
         NUXT_APP_BASE_URL: "${ github.event_name == 'push' && '/' || '/kokoko/' }"
-      run: pnpm generate
+      run: |
+        echo "Appplication base url: $NUXT_APP_BASE_URL"
+        pnpm generate
     
     - name: "PR: site preview"
       if: ${{ github.event_name == 'pull_request' }}
