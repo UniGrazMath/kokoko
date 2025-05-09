@@ -19,7 +19,7 @@ export default defineNuxtConfig({
       }
     }
   },
-  ssr: false,
+  ssr: true,
   app: {
     head: {
       title: 'KoKoKo – Koralm Kombinatorik Kolloquium',
