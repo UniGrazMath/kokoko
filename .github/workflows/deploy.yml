@@ -26,15 +26,16 @@ jobs:
       run: |
         pnpm install
     
-    - name: "Build site"
+    - name: "PR: Build site"
+      if: github.event_name == 'pull_request'
       env:
-        NUXT_APP_BASE_URL: "${{ github.event_name == 'push' && '/' || '/kokoko/' }}"
+        NUXT_APP_BASE_URL: "/"
       run: |
         echo "Appplication base url: ${NUXT_APP_BASE_URL}"
         pnpm generate
     
     - name: "PR: site preview"
-      if: ${{ github.event_name == 'pull_request' }}
+      if: github.event_name == 'pull_request'
       uses: afc163/surge-preview@v1
       with:
         surge_token: ${{ secrets.SURGE_TOKEN }}
@@ -43,16 +44,24 @@ jobs:
         dist: .output/public
         teardown: 'true'
 
+    - name: "Deploy: Build site"
+      if: github.event_name == 'push'
+      env:
+        NUXT_APP_BASE_URL: "/kokoko/"
+      run: |
+        echo "Appplication base url: ${NUXT_APP_BASE_URL}"
+        pnpm generate
+
     - name: Upload static files as artifact
-      if: ${{ github.event_name == 'push' }}
+      if: github.event_name == 'push'
       id: deployment
       uses: actions/upload-pages-artifact@v3
       with:
-        path: .output/public
+        path: .output/public/
 
 
   deploy:
-    if: ${{ github.event_name == 'push' }}
+    if: github.event_name == 'push'
     needs: build
     runs-on: ubuntu-latest
     permissions:
