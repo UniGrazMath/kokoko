@@ -1,9 +1,7 @@
 <script setup lang="ts">
 const {data: meetings} = await useAsyncData('meetings', () => queryCollection('meetings').first())
 
-const reversed_meetings = computed(() => {
-  return meetings.value?.meetings.reverse();
-})
+const reversed_meetings =  computed(() => meetings.value?.meetings.toReversed());
 
 definePageMeta({
   layout: "default"
