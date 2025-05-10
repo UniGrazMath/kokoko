@@ -3,7 +3,7 @@
 
 <template>
     <Navigation></Navigation>
-    <img :src="'/img/banner.jpg'" />
+    <NuxtImg src="/img/banner.jpg" quality="100" class="w-full" />
     <main class="container mx-auto px-4 py-8">
         <section class="container max-w-screen-xl mx-auto">
             <slot></slot>

@@ -53,7 +53,7 @@ const sessions = props.meeting.sessions?.map(session => {
         {{ meeting.organizers.join(", ") }}
     </p>
     <div v-if="meeting.photourl" class="pb-3">
-        <img :src="meeting.photourl" class="lg:w-[65%] xs:w-[100%] mx-auto">
+        <NuxtImg :src="meeting.photourl" sizes="xs:100vw lg:65vw" class="lg:w-[65%] xs:w-[100%] mx-auto" />
     </div>
     <div v-for="session in sessions" class="pb-4">
         <h5 class="font-serif font-medium text-xl mb-2">
