@@ -50,6 +50,9 @@ importers:
       vue:
         specifier: ^3.5.13
         version: 3.5.13(typescript@5.8.3)
+      vue-collapsed:
+        specifier: ^1.3.4
+        version: 1.3.4
       vue-router:
         specifier: ^4.5.0
         version: 4.5.1(vue@3.5.13(typescript@5.8.3))
@@ -4481,6 +4484,9 @@ packages:
 
   vue-bundle-renderer@2.1.1:
     resolution: {integrity: sha512-+qALLI5cQncuetYOXp4yScwYvqh8c6SMXee3B+M7oTZxOgtESP0l4j/fXdEJoZ+EdMxkGWIj+aSEyjXkOdmd7g==}
+
+  vue-collapsed@1.3.4:
+    resolution: {integrity: sha512-W92b+QT3n5iTrfrH6kyvx3TsriYPfy/Ymsb6DaanjeMkJYMdVl1S4wzKRYVDsxWQPDxiC+5m+UwPwT/8YAYodA==}
 
   vue-component-meta@2.2.10:
     resolution: {integrity: sha512-awylfiFFx/RFJKnu424R+btiGBEJgHa1RdJqb7SrbF5OKNYrL4VWkq49Fgvs/YbCsGSwVOjSl4em/mwOlrQ8/Q==}
@@ -10162,6 +10168,8 @@ snapshots:
   vue-bundle-renderer@2.1.1:
     dependencies:
       ufo: 1.6.1
+
+  vue-collapsed@1.3.4: {}
 
   vue-component-meta@2.2.10(typescript@5.8.3):
     dependencies:
