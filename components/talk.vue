@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { TalksCollectionItem } from '@nuxt/content';
 import { ref } from 'vue';
+import { Collapse } from 'vue-collapsed'
 
 defineProps<{
     talk: TalksCollectionItem
@@ -24,9 +25,11 @@ const expanded = ref(false);
                 <span v-if="!expanded">[+]</span>
                 <span v-else>[-]</span>
             </button>
-            <div class="mt-1 text-sm" v-show="expanded">
-                <ContentRenderer :value="talk" />
-            </div>
+            <Collapse :when="expanded">
+                <div class="mt-1 text-sm">
+                    <ContentRenderer :value="talk" />
+                </div>
+            </Collapse>
         </template>
     </dd>
 </template>
