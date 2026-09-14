@@ -1,41 +1,31 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
-import tailwindcss from "@tailwindcss/vite";
+import tailwindcss from '@tailwindcss/vite'
+import contentModule from './scripts/nuxt-content'
+import { siteDescription, siteTitle } from './shared/site'
+
+const baseURL = process.env.NUXT_APP_BASE_URL || '/'
+if (!baseURL.startsWith('/') || !baseURL.endsWith('/') || baseURL.includes('//')) {
+  throw new Error('NUXT_APP_BASE_URL must be a path with leading/trailing slashes, e.g. /kokoko/')
+}
 
 export default defineNuxtConfig({
-  compatibilityDate: '2024-11-01',
-  devtools: { enabled: true },
-  modules: ['@nuxt/content', '@nuxt/fonts', '@nuxt/icon', 'nuxt-mdi', '@nuxt/image'],
-  css: ['~/assets/css/main.css', '~/node_modules/katex/dist/katex.css'],
-  vite: {
-    plugins: [
-      tailwindcss(),
-    ]
-  },
-  content: {
-    build: {
-      markdown: {
-        remarkPlugins: {'remark-math': {}},
-        rehypePlugins: {'rehype-katex': {}},
-      }
-    }
-  },
-  ssr: true,
+  compatibilityDate: '2026-09-06',
+  devtools: { enabled: false },
+  modules: ['@nuxt/fonts', contentModule],
+  css: ['~/assets/css/main.css', 'katex/dist/katex.min.css'],
+  vite: { plugins: [tailwindcss()] },
   app: {
+    baseURL,
     head: {
-      title: 'KoKoKo – Koralm Kombinatorik Kolloquium',
-      meta: [
-        { name: 'description',
-          content: 'The Koralm Kombinatorik Kolloquium is an annual workshop on enumerative and analytic combinatorics usually held on either side of the Koralm in Austria.'
-        }
-      ]
-    }
+      htmlAttrs: { lang: 'en' },
+      title: siteTitle,
+      meta: [{ name: 'description', content: siteDescription }],
+    },
   },
-  experimental: {
-    appManifest: false,
+  nitro: {
+    prerender: {
+      failOnError: true,
+      crawlLinks: false,
+      routes: ['/'],
+    },
   },
-  runtimeConfig: {
-    public: {
-      siteTitle: 'KoKoKo – Koralm Kombinatorik Kolloquium',
-    }
-  }
 })

@@ -7,7 +7,6 @@ on:
   pull_request:
     types: [opened, synchronize, reopened, closed]
 
-
 jobs:
 
   build:
@@ -16,49 +15,48 @@ jobs:
       pull-requests: write
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - uses: pnpm/action-setup@v4
-      with:
-        version: 10
-    
-    - name: "Install dependencies"
-      run: |
-        pnpm install
-    
-    - name: "PR: Build site"
-      if: github.event_name == 'pull_request'
-      env:
-        NUXT_APP_BASE_URL: "/"
-      run: |
-        echo "Appplication base url: ${NUXT_APP_BASE_URL}"
-        pnpm generate
-    
-    - name: "PR: site preview"
-      if: github.event_name == 'pull_request'
-      uses: afc163/surge-preview@v1
-      with:
-        surge_token: ${{ secrets.SURGE_TOKEN }}
-        build: |
-          echo "not running npm"
-        dist: .output/public
-        teardown: 'true'
+      # Version comes from the "packageManager" field in package.json.
+      - uses: pnpm/action-setup@v4
 
-    - name: "Deploy: Build site"
-      if: github.event_name == 'push'
-      env:
-        NUXT_APP_BASE_URL: "/kokoko/"
-      run: |
-        echo "Appplication base url: ${NUXT_APP_BASE_URL}"
-        pnpm generate
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
 
-    - name: Upload static files as artifact
-      if: github.event_name == 'push'
-      id: deployment
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: .output/public/
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: "PR: build site"
+        if: github.event_name == 'pull_request'
+        env:
+          NUXT_APP_BASE_URL: "/"
+        run: pnpm generate
+
+      - name: "PR: site preview"
+        if: github.event_name == 'pull_request'
+        uses: afc163/surge-preview@v1
+        with:
+          surge_token: ${{ secrets.SURGE_TOKEN }}
+          build: echo "site already built"
+          dist: .output/public
+          teardown: 'true'
+
+      - name: "Deploy: build site"
+        if: github.event_name == 'push'
+        env:
+          NUXT_APP_BASE_URL: "/kokoko/"
+        run: pnpm generate
+
+      - name: Upload static files as artifact
+        if: github.event_name == 'push'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .output/public/
 
   deploy:
     if: github.event_name == 'push'
@@ -67,11 +65,11 @@ jobs:
     permissions:
       pages: write
       id-token: write
-    
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    
+
     steps:
       - name: Deploy to GitHub Pages
         id: deployment

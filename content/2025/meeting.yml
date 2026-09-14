@@ -1,0 +1,29 @@
+date: 2025-03-17
+location: TU Graz
+organizers:
+  - Stephan Wagner
+photo: /img/2025.jpeg
+
+sessions:
+  - name: Morning Session
+    room: Steyrergasse 30, Room AE01
+    schedule:
+      - { at: "10:00", talk: sellers }
+      - { at: "10:50", talk: wallner }
+      - { at: "11:20", talk: asinowski }
+      - { at: "12:00", break: Lunch Break }
+
+  - name: Afternoon Session
+    room: Steyrergasse 30, Room A111
+    schedule:
+      - { at: "13:30", talk: lobnig }
+      - { at: "14:00", talk: brosch }
+      - { at: "14:30", talk: krenn }
+      - { at: "15:00", break: Coffee Break }
+
+  - name: Open Problem Session
+    room: Steyrergasse 30, Room A111
+    schedule:
+      - { at: "15:30", talk: hackl }
+      - { at: "16:00", talk: lehner }
+      - { at: "16:30", break: Further Open Problems }

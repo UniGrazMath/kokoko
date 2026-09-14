@@ -1,0 +1,17 @@
+date: 2024-02-10
+location: University of Klagenfurt
+organizers:
+  - Sarah Selkirk
+
+sessions:
+  - name: Afternoon Session
+    room: Room I.2.01
+    schedule:
+      - { at: "13:30", talk: krenn }
+      - { at: "13:50", talk: lechner }
+      - { at: "14:10", talk: kurnig }
+      - { at: "14:30", talk: hackl }
+      - { at: "14:55", talk: asinowski }
+      - { at: "15:20", talk: polley }
+      - { at: "15:40", talk: selkirk }
+      - { at: "16:05", break: Open Problem Discussion }
