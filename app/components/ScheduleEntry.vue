@@ -12,10 +12,12 @@ const expanded = ref(false)
 
 <template>
   <dt
+    v-if="entry.at"
     class="text-white text-center self-start bg-primary-800 px-2 pb-1 pt-[5px] rounded-r-xl font-sans font-bold text-sm"
   >
     {{ entry.at }}
   </dt>
+  <dt v-else><span class="sr-only">Break</span></dt>
   <dd class="pt-1 -mb-2 pb-2">
     <template v-if="talk">
       <div class="mb-1">

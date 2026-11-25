@@ -41,6 +41,8 @@ sessions:
       - { at: "12:00", break: Lunch Break }
 ```
 
+If the programme does not specify a time for a break, use `{ break: Lunch Break }`.
+
 ```markdown
 <!-- content/2025/talks/wallner.md -->
 ---
@@ -62,9 +64,9 @@ TeX between `$...$` or `$$...$$`.
 Leave out `date`, `location` and `sessions`, and give an `announcement`:
 
 ```yaml
-# content/2026/meeting.yml
+# content/2027/meeting.yml
 announcement: |
-  KoKoKo 2026 is likely to take place in Spring 2026 in Klagenfurt.
+  The date and venue for KoKoKo 2027 are not yet confirmed.
   More information will follow in due course.
 ```
 

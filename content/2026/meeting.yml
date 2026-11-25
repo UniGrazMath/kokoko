@@ -1,3 +1,27 @@
-announcement: |
-  KoKoKo 2026 will take place on 4th December at TU Graz.
-  More information will be available in due course.
+date: 2026-12-04
+location: TU Graz
+
+sessions:
+  - name: Morning Session
+    room: Steyrergasse 30, Room A306 (3rd floor)
+    schedule:
+      - { at: "10:30", talk: elsholtz }
+      - { at: "11:00", talk: burghart }
+      - { at: "11:30", talk: nabawanda }
+      - { break: Lunch Break }
+
+  - name: Early Afternoon Session
+    room: Steyrergasse 30, Room A306 (3rd floor)
+    schedule:
+      - { at: "14:00", talk: gikunda }
+      - { at: "14:30", talk: madritsch }
+      - { at: "15:00", talk: smoot }
+      - { break: Coffee Break }
+
+  - name: Late Afternoon Session
+    room: Steyrergasse 30, Room A306 (3rd floor)
+    schedule:
+      - { at: "16:00", talk: aggarwal }
+      - { at: "16:30", talk: wallner }
+      - { at: "17:00", talk: okoth }
+      - { at: "17:30", talk: buchacher }
