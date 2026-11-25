@@ -47,8 +47,8 @@ defineProps<{ meeting: Meeting }>()
     </h5>
     <dl class="border-l-5 border-primary-800 grid grid-cols-[auto_1fr] gap-4 mb--2">
       <ScheduleEntry
-        v-for="entry in session.schedule"
-        :key="entry.at"
+        v-for="(entry, index) in session.schedule"
+        :key="entry.at ?? index"
         :entry="entry"
       />
     </dl>

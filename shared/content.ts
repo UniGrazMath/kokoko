@@ -20,7 +20,7 @@ export interface TalkEntry extends Talk {
 /** A non-talk programme item: coffee break, open problem discussion, ... */
 export interface BreakEntry {
   kind: 'break'
-  at: string
+  at?: string
   label: string
 }
 

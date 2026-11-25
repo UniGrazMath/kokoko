@@ -5,7 +5,7 @@ const time = z.string().regex(/^\d{2}:\d{2}$/, 'expected a HH:MM time')
 /** One line of the programme: either a talk reference or a break. */
 export const scheduleEntrySchema = z.union([
   z.object({ at: time, talk: z.string().min(1) }).strict(),
-  z.object({ at: time, break: z.string().min(1) }).strict(),
+  z.object({ at: time.optional(), break: z.string().min(1) }).strict(),
 ])
 
 export const sessionSchema = z.object({

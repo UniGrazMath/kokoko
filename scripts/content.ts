@@ -69,10 +69,12 @@ async function loadMeeting(dir: string, year: string): Promise<Meeting> {
     let previous = ''
 
     const schedule = session.schedule.map((entry): ScheduleEntry => {
-      if (entry.at <= previous) {
-        fail(where, `schedule is not in chronological order at ${entry.at}`)
+      if (entry.at !== undefined) {
+        if (entry.at <= previous) {
+          fail(where, `schedule is not in chronological order at ${entry.at}`)
+        }
+        previous = entry.at
       }
-      previous = entry.at
 
       if ('break' in entry) {
         return { kind: 'break', at: entry.at, label: entry.break }
