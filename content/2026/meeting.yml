@@ -13,6 +13,7 @@ sessions:
   - name: Early Afternoon Session
     room: Steyrergasse 30, Room A306 (3rd floor)
     schedule:
+      - { at: "13:30", talk: bonnet }
       - { at: "14:00", talk: gikunda }
       - { at: "14:30", talk: madritsch }
       - { at: "15:00", talk: smoot }
